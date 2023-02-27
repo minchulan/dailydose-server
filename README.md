@@ -1,4 +1,14 @@
-# Phase 3 Project Guidelines
+# Daily Dose - Backend
+Welcome to Daily Dose, a patient and medication management system. Daily Dose is a fullstack web app built with ReactJS frontend and Sinatra-Ruby backend. The focus of this project is building a Sinatra API backend that uses Active Record to access and persist data in a database, which will be used by a separate React frontend that interacts with the database via the API. The frontend was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Check out my backend: [Link to Frontend Repo](https://github.com/minchulan/phase-3-sinatra-react-project)
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+## 🔗 Links
+
+[![my_portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/minchulan)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/minchulan/)
+[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/itsminchul)
+
 
 ## Learning Goals
 
