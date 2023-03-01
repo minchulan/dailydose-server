@@ -22,6 +22,8 @@ GEM
       database_cleaner-core (~> 2.0.0)
     database_cleaner-core (2.0.1)
     diff-lcs (1.4.4)
+    email_validator (2.2.4)
+      activemodel
     eventmachine (1.2.7)
     ffi (1.15.3)
     i18n (1.8.10)
@@ -92,6 +94,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord (~> 6.1)
   database_cleaner (~> 2.0)
+  email_validator
   pry (~> 0.14.1)
   rack-contrib (~> 2.3)
   rack-cors (~> 1.1)
