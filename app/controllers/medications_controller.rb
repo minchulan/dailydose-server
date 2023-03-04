@@ -1,5 +1,5 @@
 class MedicationsController < ApplicationController
-    
+
     # GET all route 
     get '/medications' do  #this is all the meds
         # render all medications as JSON  
@@ -14,6 +14,7 @@ class MedicationsController < ApplicationController
 
     # Create route
     post '/medications' do 
+
         @medication = Medication.new(params)
             if @medication.save
             # return object as JSON if saved

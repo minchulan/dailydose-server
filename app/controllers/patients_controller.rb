@@ -1,9 +1,9 @@
 class PatientsController < ApplicationController
 
-    # GET all route 
+    # GET all route - Patients Index route
     get '/patients' do
-    # render all patients as JSON  
-    Patient.all.to_json
+        # renders all patients as JSON
+        @patients = Patient.all.to_json(include: [:medications])
     end 
 
     # GET one route
@@ -42,7 +42,7 @@ class PatientsController < ApplicationController
         find_patient
         if @patient
             @patient.destroy 
-            @patient.to_json
+            @patient.to_json(include: [:medications])
         else  
             { errors: ["Patient Doesn't Exist"] }.to_json
         end 
@@ -56,15 +56,13 @@ class PatientsController < ApplicationController
         end 
 
         def patient_to_json
-            @patient.to_json
+            @patient.to_json(include: [:medications])
         end 
 
         def patient_error_messages
             { errors: @patient.errors.full_messages }.to_json 
         end  
 end 
-
-
 
 
     #note: whenever we create a REQUEST, it's going to create a new instance of patients controller. It's going to instantiate patients controller, and then going to run one of the RESTful Route methods. And it's going to do that for every request. This leads to instance variables in the controller, because whenever it creates a new instance, its going to have access to instance variables. Which means if we save an instance variable, it'll be known throughout that instance (or in other words throughout that one request).

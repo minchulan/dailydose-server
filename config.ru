@@ -3,7 +3,7 @@ require_relative "./config/environment"
 # Allow CORS (Cross-Origin Resource Sharing) requests
 use Rack::Cors do
   allow do
-    origins '*'
+    origins 'localhost:3000' #whitelist URL address versus asterix * which whitelists all URLs
     resource '*', headers: :any, methods: [:get, :post, :delete, :put, :patch, :options, :head]
   end
 end
