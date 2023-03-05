@@ -10,17 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_04_224218) do
+ActiveRecord::Schema.define(version: 2023_03_05_223910) do
 
   create_table "medications", force: :cascade do |t|
     t.string "medication_name"
     t.string "image_url"
     t.float "price"
-    t.string "prescription_required"
     t.integer "patient_id"
-    t.float "dose"
-    t.string "form"
-    t.integer "quantity"
+    t.string "quantity"
+    t.integer "thc_strength"
+    t.integer "cbd_strength"
+    t.text "feelings"
+    t.text "negatives"
+    t.text "helps_with"
+    t.text "details"
+    t.string "aka"
   end
 
   create_table "patients", force: :cascade do |t|
