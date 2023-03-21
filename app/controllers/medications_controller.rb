@@ -1,6 +1,11 @@
 class MedicationsController < ApplicationController
     get '/medications' do
-        Medication.all.to_json
+        Medication.all.to_json(include: [:patient])
+    end 
+
+    get '/patients/:patient_id/medications' do 
+        find_patient
+        @patient.medications.to_json(include: [:patient])
     end 
 
     get '/medications/:id' do
@@ -9,11 +14,20 @@ class MedicationsController < ApplicationController
     end
 
     post '/medications' do 
-
         @medication = Medication.new(params)
             if @medication.save
             medication_to_json
             else  
+            medication_error_messages
+        end 
+    end 
+
+    post '/patients/:patient_id/medications' do 
+        find_patient
+        @medication = @patient.medications.build(params)
+        if @medication.save
+            medication_to_json
+        else
             medication_error_messages
         end 
     end 
@@ -45,7 +59,7 @@ class MedicationsController < ApplicationController
         end 
 
         def medication_to_json
-            @medication.to_json
+            @medication.to_json(include: [:patient])
         end 
 
         def medication_error_messages

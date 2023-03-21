@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_05_223910) do
+ActiveRecord::Schema.define(version: 2023_03_11_061214) do
 
   create_table "medications", force: :cascade do |t|
     t.string "medication_name"
-    t.string "image_url"
+    t.binary "image_url"
     t.float "price"
     t.integer "patient_id"
     t.string "quantity"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 2023_03_05_223910) do
     t.text "helps_with"
     t.text "details"
     t.string "aka"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "patients", force: :cascade do |t|
@@ -36,6 +38,8 @@ ActiveRecord::Schema.define(version: 2023_03_05_223910) do
     t.string "phone_number"
     t.text "address"
     t.string "allergies"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
