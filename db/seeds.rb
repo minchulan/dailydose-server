@@ -66,3 +66,33 @@ biscotti = Medication.create(medication_name: "Biscotti", thc_strength: 21, cbd_
 
 
 puts "✅ Done seeding!"
+
+
+# 10.times do |i|
+#     puts "Creating medication #{i+1}"
+#     Medication.create(
+#         medication_name: "Medication #{i+1}",
+#         thc_strength: "Medication #{i+1}",
+#         cbd_strength: "Medication #{i+1}",
+#         feelings: "Medication #{i+1}",
+#         negatives: "Medication #{i+1}",
+#         helps_with: "Medication #{i+1}",
+#         details: "Medication #{i+1}",
+#         aka: "Medication #{i+1}",
+#         image_url: "Medication #{i+1}",
+#         patient_id: "Medication #{i+1}"
+#     )
+# end 
+
+# 10.times do |i|
+#     puts "Creating patient #{i+1}"
+#     Patient.create(
+#         first_name: "Patient #{i+1}",
+#         last_name: "Patient #{i+1}",
+#         birthday: "Patient #{i+1}",
+#         gender: "Patient #{i+1}",
+#         phone_number: "Patient #{i+1}",
+#         address: "Patient #{i+1}",
+#         allergies: "Patient #{i+1}"
+#     )
+# end 

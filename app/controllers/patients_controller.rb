@@ -1,15 +1,10 @@
 class PatientsController < ApplicationController
     get '/patients' do
         @patients = Patient.all.order(:first_name)
-        @patients.to_json(include: [:medications])
+        @patients.to_json(include: [:medications], except: [:updated_at, :created_at])
     end 
 
-    get '/patients/:id' do
-        find_patient
-        patient_to_json
-    end 
-
-    post '/patients' do 
+    post '/patients' do
         @patient = Patient.new(params)
         if @patient.save
             patient_to_json
@@ -50,3 +45,10 @@ class PatientsController < ApplicationController
             { errors: @patient.errors.full_messages }.to_json 
         end  
 end 
+
+
+
+# get '/patients/:id' do
+#     find_patient
+#     patient_to_json
+# end 

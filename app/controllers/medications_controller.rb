@@ -1,17 +1,14 @@
 class MedicationsController < ApplicationController
+    # render all medications as JSON
     get '/medications' do
-        Medication.all.to_json(include: [:patient])
+        Medication.all.to_json(include: [:patient], except: [:updated_at, :created_at])
     end 
 
-    get '/patients/:patient_id/medications' do 
+    get '/patients/:patient_id/medications' do  
         find_patient
         @patient.medications.to_json(include: [:patient])
     end 
 
-    get '/medications/:id' do
-        find_medication
-        medication_to_json
-    end
 
     post '/medications' do 
         @medication = Medication.new(params)
@@ -42,7 +39,6 @@ class MedicationsController < ApplicationController
     end 
 
     delete '/medications/:id' do 
-        # deletes the medication
         find_medication
         if @medication
             @medication.destroy 
@@ -67,6 +63,6 @@ class MedicationsController < ApplicationController
         end  
 
         def find_patient 
-            @patient = Patient.find_by_id(params["patient_id"])
+            @patient = Patient.find_by_id(params[:patient_id)
         end 
 end 
